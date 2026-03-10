@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import api from '../services/api'
 // Importei a lógica de salvar o token
 import { login } from '../services/auth' 
 import './Login.css'
@@ -23,8 +23,8 @@ function Login() {
     try {
         // 1. Chamamos o Java no endpoint que você validou no Postman
         // Enviamos o login e senha no formato JSON que o Java espera
-        const resposta = await axios.post('http://localhost:8080/api/login', {
-            login: email, // O campo no seu DTO Java chama-se "login"
+        const resposta = await api.post('/api/login', {
+            login: email,
             senha: senha
         });
 
